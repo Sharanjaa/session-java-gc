@@ -190,7 +190,14 @@
                                         <name>wrapper.java.additional.12</name>
                                         <value>-XX:+PrintGCDateStamps</value>
                                     </property>
-
+                                    <property>
+                                        <name>wrapper.java.additional.13</name>
+                                        <value>-XX:+UnlockCommercialFeatures</value>
+                                    </property>
+                                    <property>
+                                        <name>wrapper.java.additional.14</name>
+                                        <value>-XX:+FlightRecorder</value>
+                                    </property>
                                     <property>
                                         <name>configuration.directory.in.classpath.first</name>
                                         <value>conf</value>
