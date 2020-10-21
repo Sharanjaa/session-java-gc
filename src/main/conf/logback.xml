@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ (C) Copyright 2008-2019 hSenid Software International (Pvt) Limited.
+  ~
+  ~ All Rights Reserved.
+  ~
+  ~ These materials are unpublished, proprietary, confidential source code of
+  ~ hSenid Software International (Pvt) Limited and constitute a TRADE SECRET
+  ~ of hSenid Software International (Pvt) Limited.
+  ~
+  ~ hSenid Software International (Pvt) Limited retains all title to and intellectual
+  ~ property rights in these materials.
+  -->
+
+<configuration>
+    <!-- Stop output INFO at start -->
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %black(%date{yyyy:MM:dd HH:mm:ss:SSS}) %highlight(%-5level) [%blue(%t)] %yellow(%class{0}): %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="error"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/hms/logs/session-gc/gc-error.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %date{yyyy:MM:dd HH:mm:ss:SSS} %-5level [%t] %class{0}: %msg %n
+            </Pattern>
+        </encoder>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily and when the file reaches 10 MegaBytes -->
+            <fileNamePattern>/hms/logs/session-gc/gc-error-%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+        </rollingPolicy>
+
+    </appender>
+
+    <appender name="debug"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/hms/logs/session-gc/gc-debug.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %date{yyyy:MM:dd HH:mm:ss:SSS} %-5level [%t] %class{0}: %msg %n
+            </Pattern>
+        </encoder>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily and when the file reaches 10 MegaBytes -->
+            <fileNamePattern>/hms/logs/session-gc/gc-debug-%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+        </rollingPolicy>
+
+    </appender>
+
+    <appender name="info"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/hms/logs/session-gc/gc-info.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %date{yyyy:MM:dd HH:mm:ss:SSS} %-5level [%t] %class{0}: %msg %n
+            </Pattern>
+        </encoder>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily and when the file reaches 10 MegaBytes -->
+            <fileNamePattern>/hms/logs/session-gc/gc-info.log-%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+        </rollingPolicy>
+
+    </appender>
+
+
+    <logger name="com.hms" level="info"/>
+
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.hibernate" level="ERROR" />
+    <logger name="ch.qos" level="ERROR" />
+    <logger name="com.mchange" level="ERROR" />
+    <logger name="org.apache" level="ERROR" />
+    <logger name="com.ibm.as400" level="DEBUG" />
+    <!-- todo : add loger for c3p0 <logger name="" level="ERROR" />-->
+
+    <root>
+        <appender-ref ref="info"/>
+        <!--<appender-ref ref="debug"/>-->
+        <appender-ref ref="error"/>
+        <!--<appender-ref ref="console"/>-->
+    </root>
+
+</configuration>
