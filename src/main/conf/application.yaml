@@ -13,3 +13,8 @@
 
 server:
   port: 9090
+
+# System related configuration
+system:
+  schedule:
+    hash-map-size: "*/2 * * * * *"
