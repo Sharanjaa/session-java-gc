@@ -14,7 +14,7 @@
 
 <configuration>
     <!-- Stop output INFO at start -->
-    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
     <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -93,12 +93,12 @@
 
     <logger name="com.hms" level="info"/>
 
-    <logger name="org.springframework" level="ERROR" />
-    <logger name="org.hibernate" level="ERROR" />
-    <logger name="ch.qos" level="ERROR" />
-    <logger name="com.mchange" level="ERROR" />
-    <logger name="org.apache" level="ERROR" />
-    <logger name="com.ibm.as400" level="DEBUG" />
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="org.hibernate" level="ERROR"/>
+    <logger name="ch.qos" level="ERROR"/>
+    <logger name="com.mchange" level="ERROR"/>
+    <logger name="org.apache" level="ERROR"/>
+    <logger name="com.ibm.as400" level="DEBUG"/>
     <!-- todo : add loger for c3p0 <logger name="" level="ERROR" />-->
 
     <root>

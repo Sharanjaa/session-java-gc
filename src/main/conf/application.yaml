@@ -11,10 +11,12 @@
 # property rights in these materials.
 #
 
+# Http server port of the data generator
 server:
   port: 9090
 
 # System related configuration
 system:
   schedule:
+    # schedule time to print the hash map sizes in the log
     hash-map-size: "*/2 * * * * *"

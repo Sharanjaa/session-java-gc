@@ -25,7 +25,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Configuration
-@ComponentScan(basePackages={"hms.session.gc"})
+@ComponentScan(basePackages = {"hms.session.gc"})
 @EnableScheduling
 @SpringBootApplication
 public class ApiStarter {
@@ -43,7 +43,7 @@ public class ApiStarter {
         try {
             logger.info("Initializing " + APP_NAME);
             logger.info("===============================================================");
-            logger.info("========== Java Session : " + APP_NAME +  " Started =========");
+            logger.info("========== Java Session : " + APP_NAME + " Started =========");
             logger.info("===============================================================");
         } catch (Throwable e) {
             logger.error("Error occurred while initializing the " + APP_NAME + " {}", e);
